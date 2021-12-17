@@ -1,0 +1,63 @@
+# This identifier is for identifying which plugin that has this mob
+# With this we can expand the plugin easily in the near future
+# Available Options:
+# - mythicmobs
+mob_identifier: mythicmobs
+
+# This command will be run once the mob is killed
+globalCommands:
+  - "broadcast Skeletal Knight has been defeated!"
+
+# This is the section to configure what rewards should we give
+# the damager depending on their position on the top damage leaderboard
+# Features:
+# - We can reward every top damager leaderboard position
+# - We can create a reward range for the top damager leaderboard position (e.g. giving same rewards for position 1-10)
+# - We can give the same rewards for specific positions and position lower than that (e.g. giving rewards for 1-all)
+# - We can have a conditions whereas the damager need minimal of (x) damage to receive the reward
+# - We can give the damager a droptable from mythicmobs (using mythicmobs droptables system to give reward)
+# - (create a suggestion if you have any)
+rewards:
+  1:
+    min_damage: 15
+    mythicDropTable: SkeletonKingItemDrops
+    actions:
+      - "title;&aCongratulations;&fYou are the &6#{position} &fon the damage leaderboard!;20;60;20"
+      - "actionbar;&aYou dealt {damage} damage;60"
+      - "sound;ENTITY_PLAYER_LEVELUP;1;1"
+      - "console;give {player} EMERALD_BLOCK 1"
+      - "message;&aYou have dealt the most damage on that fight with &e{damage} &adamage!"
+  2:
+    min_damage: 15
+    mythicDropTable: SkeletonKingItemDrops
+    actions:
+      - "title;&aCongratulations;&fYou are the &6#{position} &fon the damage leaderboard!;20;60;20"
+      - "actionbar;&aYou dealt {damage} damage;60"
+      - "sound;ENTITY_PLAYER_LEVELUP;1;1"
+      - "console;give {player} DIAMOND_BLOCK 1"
+      - "message;&aYou have dealt the 2nd most damage on that fight with &e{damage} &adamage!"
+  3:
+    min_damage: 15
+    mythicDropTable: SkeletonKingItemDrops
+    actions:
+      - "title;&aCongratulations;&fYou are the &6#{position} &fon the damage leaderboard!;20;60;20"
+      - "actionbar;&aYou dealt {damage} damage;60"
+      - "sound;ENTITY_PLAYER_LEVELUP;1;1"
+      - "console;give {player} GOLD_BLOCK 1"
+      - "message;&aYou have dealt the 3rd damage on that fight with &e{damage} &adamage!"
+  4-10:
+    min_damage: 5
+    mythicDropTable: SkeletonKingItemDrops
+    actions:
+      - "title;&aCongratulations;&fYou are the &6#{position} &fon the damage leaderboard!;20;60;20"
+      - "actionbar;&aYou dealt {damage} damage;60"
+      - "sound;ENTITY_PLAYER_LEVELUP;1;1"
+      - "console;give {player} IRON_BLOCK 1"
+  11-all:
+    min_damage: 2
+    mythicDropTable: SkeletonKingItemDrops
+    actions:
+      - "title;&aCongratulations;&fYou are the &6#{position} &fon the damage leaderboard!;20;60;20"
+      - "actionbar;&aYou dealt {damage} damage;60"
+      - "sound;ENTITY_PLAYER_LEVELUP;1;1"
+      - "console;give {player} COAL_BLOCK 1"
